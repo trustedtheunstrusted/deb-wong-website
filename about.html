@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me — Deb Wong</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @font-face {
+        font-family: 'TieLan';
+        src: url('fonts/★铁兰体.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'DreamHan';
+        src: url('fonts/DreamHanSansCN-W3.ttf') format('truetype');
+      }
+      
+      body {
+        background-color: #f7fdf4;
+        font-family: 'PT Sans Caption', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .vine-left {
+        position: fixed;
+        width: 300px;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards 0.2s;
+      }
+
+      .vine-right {
+        position: fixed;
+        width: 350px;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards 0.8s;
+      }
+
+      .back-btn {
+        position: fixed;
+        top: 30px;
+        left: 36px;
+        z-index: 10;
+        text-decoration: none;
+        font-size: 14px;
+        color: #555;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 0.3s;
+        transition: opacity 0.3s;
+      }
+      .back-btn:hover { opacity: 0.6; }
+
+      .copyright {
+        position: fixed;
+        top: 30px;
+        right: 5%;
+        z-index: 10;
+        font-size: 14px;
+        color: #888;
+        font-family: 'PT Sans Caption', sans-serif;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 1s;
+      }
+
+      .email {
+        position: fixed;
+        top: 50px;
+        right: 5%;
+        z-index: 10;
+        font-size: 12px;
+        color: #888;
+        font-family: 'PT Sans Caption', sans-serif;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 1s;
+      }
+
+      .lang-toggle {
+        position: fixed;
+        top: 80px;
+        right: 5%;
+        z-index: 10;
+        display: flex;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 0.5s;
+      }
+
+      .lang-toggle button {
+        background: none;
+        border: none;
+        padding: 5px 16px;
+        font-size: 12px;
+        font-family: 'PT Sans Caption', sans-serif;
+        color: #888;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .lang-toggle button.active {
+        background: #7a9e7e;
+        color: #fff;
+      }
+
+      .lang-toggle button:hover:not(.active) {
+        background: #f0f0f0;
+      }
+
+      .about-wrapper {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 100vh;
+        padding: 100px 100px 80px 200px;
+        gap: 40px;
+      }
+
+      .about-left {
+        flex: 2;
+        max-width: 60%;
+      }
+
+      .about-title {
+        width: 180px;
+        margin-bottom: 40px;
+        margin-top: -40px;
+        mix-blend-mode: multiply;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 1s;
+      }
+
+      .about-text {
+        margin-top: 10px;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 1.6s;
+        line-height: 1.7;
+        font-size: 13px;
+        color: #333;
+      }
+
+      .about-text .quote {
+        font-size: 16px;
+        font-weight: 700;
+        font-style: italic;
+        margin-top: -20px;
+        margin-bottom: 24px;
+        line-height: 1.4;
+        color: #444;
+      }
+
+      /* 中文引言用铁兰体 */
+      .lang-zh .quote {
+        font-family: 'TieLan', serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+      }
+
+      /* 中文正文用梦源 */
+      .lang-zh p:not(.quote) {
+        font-family: 'DreamHan', sans-serif;
+        font-size: 14px;
+        line-height: 1.9;
+        max-width: 450px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      .about-right {
+        position: fixed;
+        right: 130px;
+        top: 30%;
+        max-width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        animation: fadeIn 1s ease forwards 2s;
+      }
+
+      .about-photo {
+        width: 70%;
+        max-width: 250px;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+
+      .next-btn {
+        display: block;
+        text-decoration: none;
+        font-size: 14px;
+        color: #555;
+        font-family: 'PT Sans Caption', sans-serif;
+        margin-top: 20px;
+        text-align: center;
+        transition: opacity 0.3s;
+      }
+      .next-btn:hover { opacity: 0.5; }
+
+      .lang-zh { display: none; }
+
+    </style>
+  </head>
+  <body>
+
+    <img class="vine-left" src="images/about-vine-left.png" alt="vine left" />
+    <img class="vine-right" src="images/about-vine-right.png" alt="vine right" />
+
+    <a class="back-btn" href="index.html">
+      <span class="lang-en">← Back</span>
+      <span class="lang-zh">← 返回</span>
+    </a>
+
+    <div class="copyright">© Deb Wong</div>
+    <div class="email">chilldebbie1997@gmail.com</div>
+
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-zh" onclick="setLang('zh')">中文</button>
+    </div>
+
+    <div class="about-wrapper">
+      <div class="about-left">
+        <img class="about-title" src="images/about-title.png" alt="About Me" />
+
+        <div class="about-text">
+
+          <!-- 英文 -->
+          <div class="lang-en">
+            <p class="quote">"In the storm, learn to recognize the roots that hold you."</p>
+            <p>I'm Deb, a creative strategist who has learned to grow in the gaps between life, culture, and business.</p>
+            <p>I believe there is a positive balance between commerce and living. Not sacrificing one to feed the other, but letting both share the same soil, drawing from each other, growing naturally, like plants do.</p>
+            <p>My clients are often people who have truly mastered their field. They have the real thing but lack the language and the means to bring themselves into the world. My work is to help them find that root, and let it grow above ground.</p>
+            <p>I want to work with people who are genuinely formidable, those who can face their own imperfections and keep moving forward, in flesh and bone. If you believe that creativity and business can grow like living things. Let's talk!</p>
+          </div>
+
+          <!-- 中文 -->
+          <div class="lang-zh">
+            <p class="quote">「在风雨飘零中，辨认生长的根。」</p>
+            <p>我是 Deb，一名习惯在生活、文化与商业的缝隙之间生长的创意策略师。</p>
+            <p>我相信商业与生活之间存在一种正向的平衡，不是牺牲其中一个来喂养另一个，而是让两者像草木一样，共享同一片土壤，彼此借力地自然生长。</p>
+            <p>我的客户通常是真正精通某个领域里的人。他们有真材实料，却缺少把自己推出去更广阔世界的语言和方法。我的工作，就是帮他们找到那条生长的灵根，然后让它长出地面。</p>
+            <p>我希望能和真正的猛人合作，一些能面对自己不完美且以真正血肉轱辘前进的人。如果你也相信创意与商业可以像草木一样生长，我们可以聊聊！</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="about-right">
+        <img class="about-photo" src="images/photo.png" alt="Deb Wong" />
+        <a class="next-btn" href="project.html">
+          <span class="lang-en">→ My Projects</span>
+          <span class="lang-zh">→ 我的项目</span>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      function setLang(lang) {
+        const enEls = document.querySelectorAll('.lang-en');
+        const zhEls = document.querySelectorAll('.lang-zh');
+        const btnEn = document.getElementById('btn-en');
+        const btnZh = document.getElementById('btn-zh');
+
+        if (lang === 'zh') {
+          enEls.forEach(el => el.style.display = 'none');
+          zhEls.forEach(el => el.style.display = 'block');
+          btnEn.classList.remove('active');
+          btnZh.classList.add('active');
+        } else {
+          enEls.forEach(el => el.style.display = 'block');
+          zhEls.forEach(el => el.style.display = 'none');
+          btnEn.classList.add('active');
+          btnZh.classList.remove('active');
+        }
+      }
+    </script>
+
+  </body>
+</html>

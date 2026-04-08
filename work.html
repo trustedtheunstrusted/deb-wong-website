@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work With Me — Deb Wong</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'TieLan';
+      src: url('fonts/★铁兰体.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'DreamHan';
+      src: url('fonts/DreamHanSansCN-W3.ttf') format('truetype');
+    }
+
+    body {
+      background-color:#f7fdf4;
+      font-family: 'PT Sans Caption', sans-serif;
+      overflow-x: hidden;
+    }
+    .mix-multiply { mix-blend-mode: multiply; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-grow { 
+      opacity: 0;
+      animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; 
+    }
+
+    @keyframes lineGrow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .animate-line {
+      animation: lineGrow 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: 0.5s;
+    }
+
+    .glow-dot-leaf {
+      box-shadow: 0 0 8px rgba(139, 213, 128, 0.4);
+    }
+
+    /* ── Language toggle ── */
+    .lang-toggle {
+      position: fixed;
+      top: 60px;
+      right: 5%;
+      z-index: 50;
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.5s;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      padding: 5px 16px;
+      font-size: 12px;
+      font-family: 'PT Sans Caption', sans-serif;
+      color: #888;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-toggle button.active {
+      background: #7a9e7e;
+      color: #fff;
+    }
+    .lang-toggle button:hover:not(.active) {
+      background: #f0f0f0;
+    }
+
+    /* ── Chinese font overrides ── */
+    .zh-body {
+      font-family: 'DreamHan', sans-serif;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .zh-title-font {
+      font-family: 'TieLan', serif;
+    }
+
+    /* hide/show helpers */
+    .lang-en { display: block; }
+    .lang-zh { display: none; }
+    .lang-en-inline { display: inline; }
+    .lang-zh-inline { display: none; }
+  </style>
+</head>
+
+<body class="selection:bg-green-100">
+
+  <!-- ── Nav ── -->
+  <a class="fixed top-8 left-9 z-50 text-sm text-gray-500 hover:opacity-50 transition-all animate-grow" style="animation-delay: 0.1s;" href="index.html">← Back</a>
+  <div class="fixed top-8 right-[70px] z-50 text-[10px] text-gray-400 tracking-widest uppercase animate-grow" style="animation-delay: 0.1s;">© Deb Wong</div>
+  <a class="fixed bottom-8 left-9 z-50 text-sm text-gray-500 hover:opacity-50 transition-all animate-grow" style="animation-delay: 0.2s;" href="project.html">
+    <span class="lang-en-inline">← My Projects</span>
+    <span class="lang-zh-inline">← 我的项目</span>
+  </a>
+
+  <!-- ── Language Toggle ── -->
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-zh" onclick="setLang('zh')">中文</button>
+  </div>
+
+  <img src="images/top-flower.webp" alt="" class="w-full mix-multiply pointer-events-none animate-grow" style="margin-bottom:20px; animation-delay:0.3s;" />
+
+  <!-- ══════════════════════════════════
+       SECTION 1 · TRAJECTORY
+  ══════════════════════════════════ -->
+  <section class="mx-auto px-10 flex flex-col items-center" style="max-width:1000px; padding-top:80px; padding-bottom:80px;">
+    <div class="text-center animate-grow" style="animation-delay:0.3s; width:120%; margin-bottom:20px;">
+
+      <!-- 价值观大字 -->
+      <div class="text-center animate-grow" style="animation-delay:0.2s; margin-bottom:30px;">
+        <p class="mx-auto text-center lang-en" style="font-size:32px; font-weight:700; color:#4a7c4e; max-width:890px; letter-spacing:0.02em;">
+          “I work for those building something good.”
+        </p>
+        <p class="mx-auto text-center lang-zh zh-title-font" style="font-size:32px; font-weight:700; color:#4a7c4e; max-width:800px;">
+          “为有信念的人，做有意义的事。”
+        </p>
+      </div>
+
+      <!-- 小字 quote -->
+      <p class="text-gray-400 italic tracking-wide mx-auto leading-relaxed animate-grow lang-en" style="font-size:14px; max-width:500px; animation-delay:0.6s; margin-top:16px; margin-bottom:210px;">
+        "Structure for foundation. Essence for soul. AI for scale."<br>
+        <strong>I build brands that breathe and systems that endure.</strong>"
+      </p>
+      <p class="text-gray-400 tracking-wide mx-auto leading-relaxed animate-grow lang-zh zh-body" style="font-size:14px; max-width:500px; animation-delay:0.6s; margin-top:16px; margin-bottom:210px;">
+        「以架构夯实根基，以本质点亮灵魂，以AI跨越尺度。<strong>我予品牌以呼吸，予系统以永恒。</strong>」
+      </p>
+
+      <!-- 标题图片 -->
+      <img src="images/trajectory-title.webp" alt="My Trajectory" class="mx-auto mix-multiply" style="width:200px; margin-top:120px;margin-bottom:20px;" />
+
+      <!-- 时间线 -->
+      <div class="mx-auto relative" style="max-width:900px; margin-top:60px; margin-bottom:50px;">
+        <div class="absolute left-0 h-[1px] bg-gray-200 animate-line z-0" style="top:8px; width:0;"></div>
+        
+        <div class="flex justify-between items-start relative z-10">
+
+          <!-- Phase 01 -->
+          <div class="relative flex flex-col items-center group" style="width:22%;">
+            <div class="w-4 h-4 bg-white border-2 border-gray-200 rounded-full group-hover:border-[#8bd580] group-hover:bg-[#8bd580] transition-all duration-300 cursor-pointer z-10"></div>
+            <div class="mt-3 text-center">
+              <span class="text-[10px] text-gray-400 tracking-widest uppercase block">
+                <span class="lang-en-inline">Phase 01 · 2020</span>
+                <span class="lang-zh-inline">阶段一 · 2020</span>
+              </span>
+              <span class="text-[14px] font-bold text-gray-800 tracking-wider uppercase block mt-0.5">
+                <span class="lang-en-inline">Structure</span>
+                <span class="lang-zh-inline">结构</span>
+              </span>
+              <span class="text-[14px] text-[#8bd580] italic block">
+                <span class="lang-en-inline"><strong>Building</strong></span>
+                <span class="lang-zh-inline"><strong>构建</strong></span>
+              </span>
+            </div>
+            <div class="absolute bg-white rounded-xl shadow-lg p-4 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-20" style="top:90px; left:50%; transform:translateX(-50%); width:160px;">
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-en">Glutrac / DynasynQ</div>
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-zh">Glutrac / DynasynQ</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-en">Built the entire brand communications presence from scratch — alone.</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-zh">独自从零搭建品牌全部传播内容。</div>
+            </div>
+          </div>
+
+          <!-- Phase 02 -->
+          <div class="relative flex flex-col items-center group" style="width:22%;">
+            <div class="w-4 h-4 bg-white border-2 border-gray-200 rounded-full group-hover:border-[#8bd580] group-hover:bg-[#8bd580] transition-all duration-300 cursor-pointer z-10"></div>
+            <div class="mt-3 text-center">
+              <span class="text-[10px] text-gray-400 tracking-widest uppercase block">
+                <span class="lang-en-inline">Phase 02 · 2021–2022</span>
+                <span class="lang-zh-inline">阶段二 · 2021–2022</span>
+              </span>
+              <span class="text-[14px] font-bold text-gray-800 tracking-wider uppercase block mt-0.5">
+                <span class="lang-en-inline">Emotion</span>
+                <span class="lang-zh-inline">感情</span>
+              </span>
+              <span class="text-[14px] text-[#8bd580] italic block">
+                <span class="lang-en-inline"><strong>Weaving</strong></span>
+                <span class="lang-zh-inline"><strong>编织</strong></span>
+              </span>
+            </div>
+            <div class="absolute bg-white rounded-xl shadow-lg p-4 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-20" style="top:90px; left:50%; transform:translateX(-50%); width:170px;">
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-en">Miro & Wujo · Jiamin</div>
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-zh">迷肉弧蕉 · 家敏</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-en">IP world-building, body liberation, and hands-on brand craft.</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-zh">IP 世界观构建、身体解放运动、双手造物。</div>
+            </div>
+          </div>
+
+          <!-- Phase 03 -->
+          <div class="relative flex flex-col items-center group" style="width:22%;">
+            <div class="w-4 h-4 bg-white border-2 border-gray-200 rounded-full group-hover:border-[#8bd580] group-hover:bg-[#8bd580] transition-all duration-300 cursor-pointer z-10"></div>
+            <div class="mt-3 text-center">
+              <span class="text-[10px] text-gray-400 tracking-widest uppercase block">
+                <span class="lang-en-inline">Phase 03 · 2023–2024</span>
+                <span class="lang-zh-inline">阶段三 · 2023–2024</span>
+              </span>
+              <span class="text-[14px] font-bold text-gray-800 tracking-wider uppercase block mt-0.5">
+                <span class="lang-en-inline">Essence</span>
+                <span class="lang-zh-inline">本质</span>
+              </span>
+              <span class="text-[14px] text-[#8bd580] italic block">
+                <span class="lang-en-inline"><strong>Distilling</strong></span>
+                <span class="lang-zh-inline"><strong>凝结</strong></span>
+              </span>
+            </div>
+            <div class="absolute bg-white rounded-xl shadow-lg p-4 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-20" style="top:90px; left:50%; transform:translateX(-50%); width:170px;">
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-en">SunTouch · Humble Being · Bright & Beautiful</div>
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-zh">SunTouch · 平凡身体 · 有灵且美</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-en">Independent practice, brand identity design, and editorial design.</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-zh">独立创作、品牌视觉设计、编辑出版设计。</div>
+            </div>
+          </div>
+
+          <!-- Phase 04 -->
+          <div class="relative flex flex-col items-center group" style="width:22%;">
+            <div class="w-4 h-4 border-2 rounded-full glow-dot-leaf transition-all duration-300 cursor-pointer z-10" style="background-color:#8bd580; border-color:#8bd580;"></div>
+            <div class="mt-3 text-center">
+              <span class="text-[10px] font-bold tracking-widest uppercase block" style="color:#8bd580;">
+                <span class="lang-en-inline">Phase 04 · 2025</span>
+                <span class="lang-zh-inline">阶段四 · 2025</span>
+              </span>
+              <span class="text-[14px] font-bold text-gray-800 tracking-wider uppercase block mt-0.5">
+                <span class="lang-en-inline">Synergy</span>
+                <span class="lang-zh-inline">协同</span>
+              </span>
+              <span class="text-[14px] text-[#8bd580] italic block">
+                <span class="lang-en-inline"><strong>Activating</strong></span>
+                <span class="lang-zh-inline"><strong>激活</strong></span>
+              </span>
+            </div>
+            <div class="absolute bg-white rounded-xl shadow-lg p-4 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-20" style="top:90px; left:50%; transform:translateX(-50%); width:160px;">
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-en">Wellcome Digital</div>
+              <div class="text-[11px] font-bold text-gray-700 mb-2 lang-zh">Wellcome 全球数字营销</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-en">17 accounts. AI-driven SOPs. Built from within.</div>
+              <div class="text-[10px] text-gray-400 leading-relaxed lang-zh">17个客户账号。AI驱动SOP。从内部驱动增长。</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 2 · MY ADVANTAGES
+  ══════════════════════════════════ -->
+  <section class="max-w-5xl mx-auto px-10 pt-10 pb-20 flex flex-col items-center">
+    <div class="mb-10 animate-grow" style="animation-delay: 1.5s; margin-bottom:60px;">
+      <img src="images/my-advantages-title.png" alt="My Advantages" class="h-9 mix-multiply" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+
+      <!-- Visions -->
+      <article class="bg-white p-8 rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-2 flex flex-col animate-grow min-h-[400px]" style="animation-delay: 1.6s;">
+        <div class="h-24 flex items-center justify-center -mt-16 mb-2"><img class="w-[90px] mix-multiply" src="images/advantage-vision.png" alt="Vision" /></div>
+        <div class="h-12 flex items-center justify-center mb-4">
+          <h3 class="text-base font-bold text-gray-800 text-center leading-tight">
+            <span class="lang-en-inline">Visions</span>
+            <span class="lang-zh-inline">远见</span>
+          </h3>
+        </div>
+        <p class="text-[14px] italic font-bold text-gray-600 mb-3 text-left leading-snug lang-en">I forecast the climate for growth.</p>
+        <p class="text-[14px] font-bold text-gray-600 mb-3 text-left leading-snug lang-zh zh-body">我预判生长的气候。</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-en">Before the seed meets the dust, I read the frost of geopolitics and the drought of ideology — ensuring your brand takes root in fertile ground.</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-zh zh-body">在种子落地之前，我洞察地缘政治的霜冻与意识形态的干旱——确保你的品牌在肥沃的土壤中扎根。</p>
+      </article>
+
+      <!-- Hearts -->
+      <article class="bg-white p-8 rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-2 flex flex-col animate-grow min-h-[400px]" style="animation-delay: 1.7s;">
+        <div class="h-24 flex items-center justify-center -mt-16 mb-2"><img class="w-[90px] mix-multiply" src="images/advantage-heart.webp" alt="Hearts" /></div>
+        <div class="h-12 flex items-center justify-center mb-4">
+          <h3 class="text-base font-bold text-gray-800 text-center leading-tight">
+            <span class="lang-en-inline">Hearts</span>
+            <span class="lang-zh-inline">共鸣</span>
+          </h3>
+        </div>
+        <p class="text-[14px] italic font-bold text-gray-600 mb-3 text-left leading-snug lang-en">I build real human connection.</p>
+        <p class="text-[14px] font-bold text-gray-600 mb-3 text-left leading-snug lang-zh zh-body">我建立真实的人类连接。</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-en">Transforming "concrete compassion" into an inseparable bond between your brand and its people.</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-zh zh-body">将"具象的同理心"转化为品牌与其受众之间不可分割的纽带。</p>
+      </article>
+
+      <!-- Minds -->
+      <article class="bg-white p-8 rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-2 flex flex-col animate-grow min-h-[400px]" style="animation-delay: 1.8s;">
+        <div class="h-24 flex items-center justify-center -mt-16 mb-2"><img class="w-[90px] mix-multiply" src="images/advantage-mind.webp" alt="Minds" /></div>
+        <div class="h-12 flex items-center justify-center mb-4">
+          <h3 class="text-base font-bold text-gray-800 text-center leading-tight">
+            <span class="lang-en-inline">Minds</span>
+            <span class="lang-zh-inline">智慧</span>
+          </h3>
+        </div>
+        <p class="text-[14px] italic font-bold text-gray-600 mb-3 text-left leading-snug lang-en">I drive the energy leap.</p>
+        <p class="text-[14px] font-bold text-gray-600 mb-3 text-left leading-snug lang-zh zh-body">我驱动能量的跃迁。</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-en">Converting AI-driven SOPs and artistic storytelling into thriving systems for market scale.</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-zh zh-body">将 AI 驱动的标准作业程序 (SOP) 与艺术化叙事，转化为助推市场规模化增长的繁荣系统。</p>
+      </article>
+
+      <!-- Hands -->
+      <article class="bg-white p-8 rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-2 flex flex-col animate-grow min-h-[400px]" style="animation-delay: 1.9s;">
+        <div class="h-24 flex items-center justify-center -mt-16 mb-2"><img class="w-[90px] mix-multiply" src="images/advantage-hand.webp" alt="Hands" /></div>
+        <div class="h-12 flex items-center justify-center mb-4">
+          <h3 class="text-base font-bold text-gray-800 text-center leading-tight">
+            <span class="lang-en-inline">Hands</span>
+            <span class="lang-zh-inline">执行</span>
+          </h3>
+        </div>
+        <p class="text-[14px] italic font-bold text-gray-600 mb-3 text-left leading-snug lang-en">I build the physical backbone.</p>
+        <p class="text-[14px] font-bold text-gray-600 mb-3 text-left leading-snug lang-zh zh-body">我构建物理世界的支柱。</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-en">Precision in physical execution and high-quality delivery, constructing an unshakeable operational skeleton.</p>
+        <p class="text-[13px] leading-relaxed text-gray-400 text-left lang-zh zh-body">凭借精准的落地执行力与高品质交付，搭建起坚不可摧的运营骨架。</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 3 · PACKAGES
+  ══════════════════════════════════ -->
+  <section class="max-w-5xl mx-auto px-10 py-16 bg-white/40 rounded-[48px] mb-20 animate-grow" style="animation-delay: 2.1s;">
+    <div class="flex justify-center mb-20 margin-bottom:60px">
+      <img src="images/package-title.png" alt="Packages" class="h-9 mix-multiply" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Package 1: Root -->
+      <div class="bg-white p-8 pt-0 rounded-2xl flex flex-col items-center text-center border border-green-50 min-h-[460px]">
+        <div class="flex items-center justify-center mb-4" style="height:120px; margin-top:-40px;">
+          <img src="images/package-1.webp" class="mix-multiply" style="width:100px;" />
+        </div>
+        <div class="flex flex-col flex-grow w-full">
+          <div class="h-[120px] flex flex-col justify-center mb-6">
+            <h4 class="font-bold text-base text-gray-800 leading-snug mb-2">
+              <span class="lang-en-inline">| Root Package |<br>The Soul Document</span>
+              <span class="lang-zh-inline">| 根基方案 |<br>灵魂档案</span>
+            </h4>
+            <p class="text-[13px] text-[#8bd580] italic lang-en">Brand Foundation &amp; Identity</p>
+            <p class="text-[13px] text-[#8bd580] lang-zh zh-body">品牌基石与身份识别</p>
+          </div>
+          <div class="w-full text-left space-y-4 mb-2">
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-en"><strong class="text-gray-600">Services:</strong> Interviews + Research + Core Distillation</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-zh zh-body"><strong class="text-gray-600">服务内容：</strong>深度访谈 + 市场调研 + 核心本质提炼</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-en"><strong class="text-gray-600">Delivery:</strong> 2–3 weeks</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-zh zh-body"><strong class="text-gray-600">交付周期：</strong>2–3 周</p>
+          </div>
+        </div>
+        <button onclick="toggleSheet('sheet-root', true)" class="mt-8 border-b-2 border-gray-800 pb-1 text-[11px] font-bold tracking-widest hover:opacity-40 transition-opacity">
+          <span class="lang-en-inline">READ MORE</span>
+          <span class="lang-zh-inline">了解更多</span>
+        </button>
+      </div>
+
+      <!-- Package 2: Vine -->
+      <div class="bg-white p-8 pt-0 rounded-2xl flex flex-col items-center text-center border border-green-50 min-h-[460px]">
+        <div class="flex items-center justify-center mb-4" style="height:120px; margin-top:-40px;">
+          <img src="images/package-2.webp" class="mix-multiply" style="width:100px;" />
+        </div>
+        <div class="flex flex-col flex-grow w-full">
+          <div class="h-[120px] flex flex-col justify-center mb-6">
+            <h4 class="font-bold text-base text-gray-800 leading-snug mb-2">
+              <span class="lang-en-inline">| Vine Package |<br>Global Growth Kit</span>
+              <span class="lang-zh-inline">| 藤蔓方案 |<br>全球增长工具包</span>
+            </h4>
+            <p class="text-[13px] text-[#8bd580] italic lang-en">Overseas Content &amp; Visual Assets</p>
+            <p class="text-[13px] text-[#8bd580] lang-zh zh-body">出海内容与视觉资产</p>
+          </div>
+          <div class="w-full text-left space-y-4 mb-2">
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-en"><strong class="text-gray-600">Services:</strong> Visual Execution + 3-month Content Strategy</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-zh zh-body"><strong class="text-gray-600">服务内容：</strong>视觉落地执行 + 3个月内容策略方案</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-en"><strong class="text-gray-600">Delivery:</strong> 1–2 months</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-zh zh-body"><strong class="text-gray-600">交付周期：</strong>1–2 个月</p>
+          </div>
+        </div>
+        <button onclick="toggleSheet('sheet-vine', true)" class="mt-8 border-b-2 border-gray-800 pb-1 text-[11px] font-bold tracking-widest hover:opacity-40 transition-opacity">
+          <span class="lang-en-inline">READ MORE</span>
+          <span class="lang-zh-inline">了解更多</span>
+        </button>
+      </div>
+
+      <!-- Package 3: Bloom -->
+      <div class="bg-white p-8 pt-0 rounded-2xl flex flex-col items-center text-center border border-green-50 min-h-[460px]">
+        <div class="flex items-center justify-center mb-4" style="height:120px; margin-top:-40px;">
+          <img src="images/package-3.webp" class="mix-multiply" style="width:100px;" />
+        </div>
+        <div class="flex flex-col flex-grow w-full">
+          <div class="h-[120px] flex flex-col justify-center mb-6">
+            <h4 class="font-bold text-base text-gray-800 leading-snug mb-2">
+              <span class="lang-en-inline">| Bloom Package |<br>Strategy Retainer</span>
+              <span class="lang-zh-inline">| 花期方案 |<br>策略顾问月费</span>
+            </h4>
+            <p class="text-[13px] text-[#8bd580] italic lang-en">Long-Term Strategic Advisory</p>
+            <p class="text-[13px] text-[#8bd580] lang-zh zh-body">长期战略咨询</p>
+          </div>
+          <div class="w-full text-left space-y-4 mb-2">
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-en"><strong class="text-gray-600">Services:</strong> 2 Video Sessions/mo + On-call Consulting</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-zh zh-body"><strong class="text-gray-600">服务内容：</strong>每月 2 次视频会议 + 随时在线咨询</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-en"><strong class="text-gray-600">Delivery:</strong> Monthly</p>
+            <p class="text-[13px] text-gray-400 leading-relaxed lang-zh zh-body"><strong class="text-gray-600">交付周期：</strong>按月协作</p>
+          </div>
+        </div>
+        <button onclick="toggleSheet('sheet-bloom', true)" class="mt-8 border-b-2 border-gray-800 pb-1 text-[11px] font-bold tracking-widest hover:opacity-40 transition-opacity">
+          <span class="lang-en-inline">READ MORE</span>
+          <span class="lang-zh-inline">了解更多</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER · CONTACT
+  ══════════════════════════════════ -->
+  <footer class="flex flex-col items-center pt-4 animate-grow" style="animation-delay: 2.3s;">
+    <div class="mb-8"><img src="images/contact-title.webp" alt="Contact Me" class="h-8 mix-multiply" /></div>
+    <div class="border border-green-200 rounded-lg px-10 py-3 mb-5 hover:bg-green-50 transition-colors cursor-pointer group">
+      <a href="mailto:chilldebbie1997@gmail.com" class="text-gray-600 text-lg group-hover:text-green-700 transition-colors">chilldebbie1997@gmail.com</a>
+    </div>
+    <p class="text-[14px] leading-relaxed text-gray-400 mb-10 tracking-wide text-center lang-en">Let's grow a new world together.</p>
+    <p class="text-[14px] leading-relaxed text-gray-400 mb-10 tracking-wide text-center lang-zh zh-body">让我们一起种出一个新世界。</p>
+    <img class="w-full mix-multiply -mt-50 relative z-0" src="images/bottem-flower.webp" />
+  </footer>
+
+  <!-- ══════════════════════════════════
+       BOTTOM SHEETS
+  ══════════════════════════════════ -->
+  <div id="overlay" class="fixed inset-0 bg-black/20 z-[100] hidden opacity-0 transition-opacity duration-300 pointer-events-none" onclick="closeAllSheets()"></div>
+
+  <!-- ── Sheet: Root ── -->
+  <div id="sheet-root" class="fixed bottom-0 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-2xl w-full h-[85vh] bg-[#f7fdf4] z-[101] rounded-t-[40px] shadow-2xl p-10 md:px-24 overflow-y-auto translate-y-full transition-transform duration-500 ease-in-out">
+    <div class="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-10 cursor-pointer" onclick="toggleSheet('sheet-root', false)"></div>
+    <div class="flex justify-between items-start mb-8">
+      <div>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight uppercase lang-en">Root: The Soul Document</h2>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight lang-zh zh-body">根基方案：灵魂档案</h2>
+        <p class="text-sm text-[#8bd580] italic mt-1 font-medium lang-en">Planting the Essence, Defining the DNA.</p>
+        <p class="text-sm text-[#8bd580] mt-1 font-medium lang-zh zh-body">种下本质，定义基因。</p>
+      </div>
+      <button class="text-gray-300 hover:text-gray-800 transition-colors text-sm" onclick="toggleSheet('sheet-root', false)">
+        <span class="lang-en-inline">✕ Close</span><span class="lang-zh-inline">✕ 关闭</span>
+      </button>
+    </div>
+    <div class="space-y-8 text-[14px] leading-relaxed text-gray-600">
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-3 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">What this is</span><span class="lang-zh-inline">这是什么</span>
+        </h3>
+        <p class="text-gray-700 lang-en">A brand is not "designed"; it is <strong>"remembered."</strong> The Soul Document is an archeological journey into the founder's vision — finding the root before anything grows above ground.</p>
+        <p class="text-gray-700 lang-zh zh-body">品牌不是被"设计"出来的，而是被<strong>"记住"</strong>的。灵魂档案是一场深入创始人愿景的考古之旅——在任何东西长出地面之前，先找到那条根。</p>
+      </section>
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-3 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">Best for</span><span class="lang-zh-inline">适合谁</span>
+        </h3>
+        <p class="lang-en">Founders who know what they do but struggle to say <em>who they are</em>. You have a real product or service — you just need the language and framework to bring it into the world.</p>
+        <p class="lang-zh zh-body">知道自己在做什么，却说不清自己是谁的创始人。你有真材实料——你只是需要把它带入世界的语言和框架。</p>
+      </section>
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-4 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">What you'll receive</span><span class="lang-zh-inline">交付内容</span>
+        </h3>
+        <ul class="space-y-4">
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#7A8C6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Deep-Dive Discovery Session <span class="font-normal text-gray-400">(2 hrs)</span></p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">深度发现访谈 <span class="font-normal text-gray-400">（2小时）</span></p>
+              <p class="text-gray-500 text-[13px] lang-en">A recorded interview to excavate your brand's true origin, values, and vision.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">录音深度访谈，挖掘品牌真实起源、价值观与愿景。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#7A8C6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Brand Core Document</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">品牌核心文件</p>
+              <p class="text-gray-500 text-[13px] lang-en">Mission, vision, values, and brand personality — distilled into one clear reference you'll use for years.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">使命、愿景、价值观、品牌人格——凝练成一份你会用很多年的核心文件。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#7A8C6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Positioning Statement</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">品牌定位语句</p>
+              <p class="text-gray-500 text-[13px] lang-en">One sentence that captures who you are, who you serve, and why it matters.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">一句话定义你是谁、服务谁、为何重要。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#7A8C6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Language & Voice Guide</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">语言风格指南</p>
+              <p class="text-gray-500 text-[13px] lang-en">Key messages, tone of voice, and words to use (and avoid) across all communications.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">核心表达、语气风格，以及传播中该用和该避开的词汇。</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="bg-white border border-green-100 rounded-2xl px-6 py-5">
+        <p class="text-gray-700 italic lang-en">"This document becomes your foundation for everything that follows — every brief, every collaboration, every piece of content."</p>
+        <p class="text-gray-700 lang-zh zh-body">「这份文件将成为你此后一切的基石——每一份简报、每一次合作、每一篇内容。」</p>
+      </section>
+      <div class="bg-[#7A8C6E] rounded-2xl px-6 py-5 flex items-center justify-between">
+        <div>
+          <p class="text-white/70 text-[11px] tracking-widest uppercase lang-en">Investment</p>
+          <p class="text-white/70 text-[11px] tracking-widest lang-zh zh-body">报价</p>
+          <p class="text-white text-2xl font-bold mt-1 lang-en">$1,650 – $2,480</p>
+          <p class="text-white text-2xl font-bold mt-1 lang-zh">¥12,000 – 18,000</p>
+        </div>
+        <div class="text-right">
+          <p class="text-white/70 text-[11px] lang-en">One-time · 2–3 weeks</p>
+          <p class="text-white/70 text-[11px] lang-zh zh-body">一次性 · 2–3周交付</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Sheet: Vine ── -->
+  <div id="sheet-vine" class="fixed bottom-0 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-2xl w-full h-[85vh] bg-[#f7fdf4] z-[101] rounded-t-[40px] shadow-2xl p-10 md:px-24 overflow-y-auto translate-y-full transition-transform duration-500 ease-in-out">
+    <div class="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-10 cursor-pointer" onclick="toggleSheet('sheet-vine', false)"></div>
+    <div class="flex justify-between items-start mb-8">
+      <div>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight uppercase lang-en">Vine: Global Growth Kit</h2>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight lang-zh zh-body">藤蔓方案：全球增长工具包</h2>
+        <p class="text-sm text-[#8bd580] italic mt-1 font-medium lang-en">Overseas Content & Visual Assets</p>
+        <p class="text-sm text-[#8bd580] mt-1 font-medium lang-zh zh-body">出海内容与视觉资产</p>
+      </div>
+      <button class="text-gray-300 hover:text-gray-800 transition-colors text-sm" onclick="toggleSheet('sheet-vine', false)">
+        <span class="lang-en-inline">✕ Close</span><span class="lang-zh-inline">✕ 关闭</span>
+      </button>
+    </div>
+    <div class="space-y-8 text-[14px] leading-relaxed text-gray-600">
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-3 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">What this is</span><span class="lang-zh-inline">这是什么</span>
+        </h3>
+        <p class="text-gray-700 lang-en">Content that carries your brand's soul into new soil — not a translation, but a <strong>transplant</strong>. A full kit for brands ready to grow beyond their current market.</p>
+        <p class="text-gray-700 lang-zh zh-body">将品牌灵魂带入新土壤的内容——不是翻译，而是<strong>移植</strong>。为准备走出当前市场的品牌打造完整工具包。</p>
+      </section>
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-3 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">Best for</span><span class="lang-zh-inline">适合谁</span>
+        </h3>
+        <p class="lang-en">Brands entering overseas Chinese communities, Southeast Asia, or global audiences — who need content that doesn't lose its soul across cultural borders.</p>
+        <p class="lang-zh zh-body">正在进入海外华人社群、东南亚或全球受众市场的品牌——需要跨越文化边界也不失灵魂的内容。</p>
+      </section>
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-4 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">What you'll receive</span><span class="lang-zh-inline">交付内容</span>
+        </h3>
+        <ul class="space-y-4">
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#5C7A6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Cross-cultural Content Strategy <span class="font-normal text-gray-400">(3-month roadmap)</span></p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">跨文化内容策略 <span class="font-normal text-gray-400">（3个月路线图）</span></p>
+              <p class="text-gray-500 text-[13px] lang-en">Platform-by-platform content plan tailored for Chinese-speaking audiences abroad.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">针对海外华语受众、按平台定制的内容规划。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#5C7A6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Visual Asset Suite</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">视觉资产套件</p>
+              <p class="text-gray-500 text-[13px] lang-en">Key visual templates, brand-in-use guidelines, and a content design system your team can execute independently.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">核心视觉模板、品牌应用指南及内容设计系统，供团队独立执行。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#5C7A6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">KOL / KOC Campaign Framework</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">KOL / KOC 推广框架</p>
+              <p class="text-gray-500 text-[13px] lang-en">Influencer strategy, brief templates, and selection criteria based on your brand's values and goals.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">KOL/KOC策略、简报模板及基于品牌价值观与目标的筛选标准。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#5C7A6E] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Platform Setup & Optimization</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">平台搭建与优化</p>
+              <p class="text-gray-500 text-[13px] lang-en">Xiaohongshu, WeChat, Instagram — profiles, bio copy, and first-month content seeded.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">小红书、微信、Instagram——账号搭建、简介文案及第一个月内容种草。</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="bg-white border border-green-100 rounded-2xl px-6 py-5">
+        <p class="text-gray-700 italic lang-en">"Content that carries your brand's soul into new soil — not a translation, but a transplant."</p>
+        <p class="text-gray-700 lang-zh zh-body">「将品牌灵魂带入新土壤——不是翻译，而是移植。」</p>
+      </section>
+      <div class="bg-[#5C7A6E] rounded-2xl px-6 py-5 flex items-center justify-between">
+        <div>
+          <p class="text-white/70 text-[11px] tracking-widest uppercase lang-en">Investment</p>
+          <p class="text-white/70 text-[11px] tracking-widest lang-zh zh-body">报价</p>
+          <p class="text-white text-2xl font-bold mt-1 lang-en">$3,860 – $5,520</p>
+          <p class="text-white text-2xl font-bold mt-1 lang-zh">¥28,000 – 40,000</p>
+        </div>
+        <div class="text-right">
+          <p class="text-white/70 text-[11px] lang-en">Full project · 1–2 months</p>
+          <p class="text-white/70 text-[11px] lang-zh zh-body">完整项目 · 1–2个月交付</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Sheet: Bloom ── -->
+  <div id="sheet-bloom" class="fixed bottom-0 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-2xl w-full h-[85vh] bg-[#f7fdf4] z-[101] rounded-t-[40px] shadow-2xl p-10 md:px-24 overflow-y-auto translate-y-full transition-transform duration-500 ease-in-out">
+    <div class="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-10 cursor-pointer" onclick="toggleSheet('sheet-bloom', false)"></div>
+    <div class="flex justify-between items-start mb-8">
+      <div>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight uppercase lang-en">Bloom: Strategy Retainer</h2>
+        <h2 class="text-xl font-bold text-gray-800 tracking-tight lang-zh zh-body">花期方案：策略顾问月费</h2>
+        <p class="text-sm text-[#8bd580] italic mt-1 font-medium lang-en">Long-Term Strategic Advisory</p>
+        <p class="text-sm text-[#8bd580] mt-1 font-medium lang-zh zh-body">长期战略咨询</p>
+      </div>
+      <button class="text-gray-300 hover:text-gray-800 transition-colors text-sm" onclick="toggleSheet('sheet-bloom', false)">
+        <span class="lang-en-inline">✕ Close</span><span class="lang-zh-inline">✕ 关闭</span>
+      </button>
+    </div>
+    <div class="space-y-8 text-[14px] leading-relaxed text-gray-600">
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-3 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">What this is</span><span class="lang-zh-inline">这是什么</span>
+        </h3>
+        <p class="text-gray-700 lang-en">A thinking partner, on call. Good brands don't stay sharp on their own — this keeps you <strong>honest, focused, and moving</strong> as your brand grows.</p>
+        <p class="text-gray-700 lang-zh zh-body">随叫随到的思考伙伴。好品牌不会自己保持锋利——这让你在品牌成长的过程中保持<strong>诚实、专注和前行</strong>。</p>
+      </section>
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-3 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">Best for</span><span class="lang-zh-inline">适合谁</span>
+        </h3>
+        <p class="lang-en">Founders who already have a brand foundation but need an experienced strategic mind to pressure-test decisions, shape campaigns, and keep the brand coherent as it scales.</p>
+        <p class="lang-zh zh-body">已有品牌基础，但需要经验丰富的策略伙伴来检验决策、塑造活动、并在规模化过程中保持品牌一致性的创始人。</p>
+      </section>
+      <section>
+        <h3 class="text-[10px] tracking-[0.2em] text-green-700 uppercase font-bold mb-4 border-b border-green-100 pb-2">
+          <span class="lang-en-inline">What you'll receive each month</span><span class="lang-zh-inline">每月交付内容</span>
+        </h3>
+        <ul class="space-y-4">
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#8B6F47] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">2 × Strategy Sessions <span class="font-normal text-gray-400">(60 min each)</span></p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">每月2次策略会议 <span class="font-normal text-gray-400">（各60分钟）</span></p>
+              <p class="text-gray-500 text-[13px] lang-en">Video calls focused on your most pressing brand and marketing decisions.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">视频通话，聚焦你最紧迫的品牌与营销决策。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#8B6F47] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Async Consulting <span class="font-normal text-gray-400">(24hr response)</span></p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">异步咨询 <span class="font-normal text-gray-400">（24小时响应）</span></p>
+              <p class="text-gray-500 text-[13px] lang-en">Voice notes, WeChat or email — quick questions and content reviews between sessions.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">语音消息、微信或邮件——会议间隙的快速问题与内容审阅。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#8B6F47] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Monthly Brand Health Check</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">品牌月度健检</p>
+              <p class="text-gray-500 text-[13px] lang-en">A brief review of your content, messaging, and positioning to catch drift before it compounds.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">对内容、表达和定位的简短复盘，在问题累积前及时纠偏。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#8B6F47] mt-2 flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-gray-800 lang-en">Priority Network Access</p>
+              <p class="font-semibold text-gray-800 lang-zh zh-body">优先资源网络</p>
+              <p class="text-gray-500 text-[13px] lang-en">First access to my network of designers, photographers, and content creators when you need them.</p>
+              <p class="text-gray-500 text-[13px] lang-zh zh-body">优先获取我的设计师、摄影师和内容创作者资源网络。</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="bg-white border border-green-100 rounded-2xl px-6 py-5">
+        <p class="text-gray-700 italic lang-en">"Good brands don't stay sharp on their own. This keeps you honest, focused, and moving."</p>
+        <p class="text-gray-700 lang-zh zh-body">「好品牌不会自己保持锋利。这让你保持诚实、专注和前行。」</p>
+      </section>
+      <div class="bg-[#8B6F47] rounded-2xl px-6 py-5 flex items-center justify-between">
+        <div>
+          <p class="text-white/70 text-[11px] tracking-widest uppercase lang-en">Investment</p>
+          <p class="text-white/70 text-[11px] tracking-widest lang-zh zh-body">报价</p>
+          <p class="text-white text-2xl font-bold mt-1 lang-en">$1,100 – $1,650<span class="text-base font-normal"> /mo</span></p>
+          <p class="text-white text-2xl font-bold mt-1 lang-zh">¥8,000 – 12,000<span class="text-base font-normal"> /月</span></p>
+        </div>
+        <div class="text-right">
+          <p class="text-white/70 text-[11px] lang-en">Monthly · min. 2 months</p>
+          <p class="text-white/70 text-[11px] lang-zh zh-body">按月续约 · 最少2个月起</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════ -->
+  <script>
+    function setLang(lang) {
+      const btnEn = document.getElementById('btn-en');
+      const btnZh = document.getElementById('btn-zh');
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+      document.querySelectorAll('.lang-zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
+      document.querySelectorAll('.lang-en-inline').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
+      document.querySelectorAll('.lang-zh-inline').forEach(el => el.style.display = lang === 'zh' ? 'inline' : 'none');
+      if (lang === 'zh') {
+        btnEn.classList.remove('active');
+        btnZh.classList.add('active');
+      } else {
+        btnZh.classList.remove('active');
+        btnEn.classList.add('active');
+      }
+    }
+
+    function toggleSheet(id, show) {
+      const sheet = document.getElementById(id);
+      const overlay = document.getElementById('overlay');
+      if (!sheet) return;
+      if (show) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('pointer-events-all');
+        setTimeout(() => { overlay.classList.add('opacity-100'); sheet.classList.remove('translate-y-full'); }, 10);
+        document.body.style.overflow = 'hidden';
+      } else {
+        sheet.classList.add('translate-y-full');
+        overlay.classList.remove('opacity-100');
+        setTimeout(() => { overlay.classList.add('hidden'); overlay.classList.remove('pointer-events-all'); }, 500);
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeAllSheets() {
+      document.querySelectorAll('[id^="sheet-"]').forEach(s => s.classList.add('translate-y-full'));
+      const overlay = document.getElementById('overlay');
+      overlay.classList.remove('opacity-100');
+      setTimeout(() => { overlay.classList.add('hidden'); }, 500);
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllSheets(); });
+  </script>
+</body>
+</html>
