@@ -721,51 +721,54 @@
   <!-- ══════════════════════════════════
        SCRIPTS
   ══════════════════════════════════ -->
-  <script>
-    function setLang(lang) {
-      const btnEn = document.getElementById('btn-en');
-      const btnZh = document.getElementById('btn-zh');
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
-      document.querySelectorAll('.lang-zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
-      document.querySelectorAll('.lang-en-inline').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
-      document.querySelectorAll('.lang-zh-inline').forEach(el => el.style.display = lang === 'zh' ? 'inline' : 'none');
-      document.querySelector('.lang-zh.absolute').style.display = lang === 'zh' ? 'flex' : 'none';
-      document.querySelector('.lang-en.absolute').style.display = lang === 'en' ? 'flex' : 'none';
-      }
-      if (lang === 'zh') {
-        btnEn.classList.remove('active');
-        btnZh.classList.add('active');
-      } else {
-        btnZh.classList.remove('active');
-        btnEn.classList.add('active');
-      }
-
-    function toggleSheet(id, show) {
-      const sheet = document.getElementById(id);
-      const overlay = document.getElementById('overlay');
-      if (!sheet) return;
-      if (show) {
-        overlay.classList.remove('hidden');
-        overlay.classList.add('pointer-events-all');
-        setTimeout(() => { overlay.classList.add('opacity-100'); sheet.classList.remove('translate-y-full'); }, 10);
-        document.body.style.overflow = 'hidden';
-      } else {
-        sheet.classList.add('translate-y-full');
-        overlay.classList.remove('opacity-100');
-        setTimeout(() => { overlay.classList.add('hidden'); overlay.classList.remove('pointer-events-all'); }, 500);
-        document.body.style.overflow = '';
-      }
+<script>
+  function setLang(lang) {
+    const btnEn = document.getElementById('btn-en');
+    const btnZh = document.getElementById('btn-zh');
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+    document.querySelectorAll('.lang-zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
+    document.querySelectorAll('.lang-en-inline').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
+    document.querySelectorAll('.lang-zh-inline').forEach(el => el.style.display = lang === 'zh' ? 'inline' : 'none');
+    document.querySelector('.lang-zh.absolute').style.display = lang === 'zh' ? 'flex' : 'none';
+    document.querySelector('.lang-en.absolute').style.display = lang === 'en' ? 'flex' : 'none';
+    
+    // 这部分要在函数内部！
+    if (lang === 'zh') {
+      btnEn.classList.remove('active');
+      btnZh.classList.add('active');
+    } else {
+      btnZh.classList.remove('active');
+      btnEn.classList.add('active');
+      document.body.classList.remove('zh-body');
     }
+  }
 
-    function closeAllSheets() {
-      document.querySelectorAll('[id^="sheet-"]').forEach(s => s.classList.add('translate-y-full'));
-      const overlay = document.getElementById('overlay');
+  function toggleSheet(id, show) {
+    const sheet = document.getElementById(id);
+    const overlay = document.getElementById('overlay');
+    if (!sheet) return;
+    if (show) {
+      overlay.classList.remove('hidden');
+      overlay.classList.add('pointer-events-all');
+      setTimeout(() => { overlay.classList.add('opacity-100'); sheet.classList.remove('translate-y-full'); }, 10);
+      document.body.style.overflow = 'hidden';
+    } else {
+      sheet.classList.add('translate-y-full');
       overlay.classList.remove('opacity-100');
-      setTimeout(() => { overlay.classList.add('hidden'); }, 500);
+      setTimeout(() => { overlay.classList.add('hidden'); overlay.classList.remove('pointer-events-all'); }, 500);
       document.body.style.overflow = '';
     }
+  }
 
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllSheets(); });
-  </script>
+  function closeAllSheets() {
+    document.querySelectorAll('[id^="sheet-"]').forEach(s => s.classList.add('translate-y-full'));
+    const overlay = document.getElementById('overlay');
+    overlay.classList.remove('opacity-100');
+    setTimeout(() => { overlay.classList.add('hidden'); }, 500);
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllSheets(); });
+</script>
 </body>
 </html>
