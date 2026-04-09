@@ -112,38 +112,44 @@
     <button id="btn-zh" onclick="setLang('zh')">中文</button>
   </div>
 
-  <img src="images/top-flower.webp" alt="" class="w-full mix-multiply pointer-events-none animate-grow" style="margin-bottom:20px; animation-delay:0.3s;" />
+<!-- 花朵图片 + 宣言卡片叠加 -->
+<div class="relative w-full">
+  <img src="images/top-flower.webp" alt="" class="w-full mix-multiply pointer-events-none animate-grow" style="margin-bottom:0; animation-delay:0.3s;" />
+  
+<!-- 宣言卡片 EN -->
+<div class="absolute inset-0 animate-grow lang-en" style="animation-delay:0.4s; display:flex; align-items:flex-start; justify-content:center; padding-top:170px;">
+  <div class="bg-white/95 backdrop-blur-sm rounded-2xl px-16 py-12 text-center shadow-md" style="width:680px;">
+    <p style="font-size:30px; font-weight:700; color:#2d5a30; letter-spacing:0.02em; margin-bottom:24px;">
+      "For founders with ethics. <br>For brands with a soul."
+    </p>
+    <p class="italic tracking-wide leading-relaxed" style="font-size:14px; color:#6b8f71;">
+      "Structure for foundation. Essence for soul. AI for scale."<br>
+      <strong>I build brands that breathe and systems that endure.</strong>"
+    </p>
+  </div>
+</div>
+
+<!-- 宣言卡片 ZH -->
+<div class="absolute inset-0 animate-grow lang-zh" style="animation-delay:0.4s; display:none; align-items:flex-start; justify-content:center; padding-top:180px;">
+  <div class="bg-white/95 backdrop-blur-sm rounded-2xl px-16 py-12 text-center shadow-md" style="width:680px;">
+    <p class="zh-title-font" style="font-size:30px; font-weight:700; color:#2d5a30; margin-bottom:24px;">
+      "为有信念的人，做有意义的事。"
+    </p>
+    <p class="tracking-wide leading-relaxed zh-body" style="font-size:14px; color:#6b8f71;">
+      「以架构夯实根基，以本质点亮灵魂，以AI跨越尺度。<br><strong>我予品牌以呼吸，予系统以永恒。</strong>」
+    </p>
+  </div>
+</div>
 
   <!-- ══════════════════════════════════
        SECTION 1 · TRAJECTORY
   ══════════════════════════════════ -->
-  <section class="mx-auto px-10 flex flex-col items-center" style="max-width:1000px; padding-top:80px; padding-bottom:80px;">
-    <div class="text-center animate-grow" style="animation-delay:0.3s; width:120%; margin-bottom:20px;">
-
-      <!-- 价值观大字 -->
-      <div class="text-center animate-grow" style="animation-delay:0.2s; margin-bottom:30px;">
-        <p class="mx-auto text-center lang-en" style="font-size:32px; font-weight:700; color:#4a7c4e; max-width:890px; letter-spacing:0.02em;">
-          “I work for those building something good.”
-        </p>
-        <p class="mx-auto text-center lang-zh zh-title-font" style="font-size:32px; font-weight:700; color:#4a7c4e; max-width:800px;">
-          “为有信念的人，做有意义的事。”
-        </p>
-      </div>
-
-      <!-- 小字 quote -->
-      <p class="text-gray-400 italic tracking-wide mx-auto leading-relaxed animate-grow lang-en" style="font-size:14px; max-width:500px; animation-delay:0.6s; margin-top:16px; margin-bottom:210px;">
-        "Structure for foundation. Essence for soul. AI for scale."<br>
-        <strong>I build brands that breathe and systems that endure.</strong>"
-      </p>
-      <p class="text-gray-400 tracking-wide mx-auto leading-relaxed animate-grow lang-zh zh-body" style="font-size:14px; max-width:500px; animation-delay:0.6s; margin-top:16px; margin-bottom:210px;">
-        「以架构夯实根基，以本质点亮灵魂，以AI跨越尺度。<strong>我予品牌以呼吸，予系统以永恒。</strong>」
-      </p>
 
       <!-- 标题图片 -->
-      <img src="images/trajectory-title.webp" alt="My Trajectory" class="mx-auto mix-multiply" style="width:200px; margin-top:120px;margin-bottom:20px;" />
+      <img src="images/trajectory-title.webp" alt="My Trajectory" class="mx-auto mix-multiply" style="width:200px; margin-top:0px;margin-bottom:20px;" />
 
       <!-- 时间线 -->
-      <div class="mx-auto relative" style="max-width:900px; margin-top:60px; margin-bottom:50px;">
+      <div class="mx-auto relative" style="max-width:900px; margin-top:50px; margin-bottom:200px;">
         <div class="absolute left-0 h-[1px] bg-gray-200 animate-line z-0" style="top:8px; width:0;"></div>
         
         <div class="flex justify-between items-start relative z-10">
@@ -257,7 +263,7 @@
   <!-- ══════════════════════════════════
        SECTION 2 · MY ADVANTAGES
   ══════════════════════════════════ -->
-  <section class="max-w-5xl mx-auto px-10 pt-10 pb-20 flex flex-col items-center">
+  <section class="max-w-5xl mx-auto px-10 pt-13 pb-20 flex flex-col items-center">
     <div class="mb-10 animate-grow" style="animation-delay: 1.5s; margin-bottom:60px;">
       <img src="images/my-advantages-title.png" alt="My Advantages" class="h-9 mix-multiply" />
     </div>
@@ -723,6 +729,9 @@
       document.querySelectorAll('.lang-zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
       document.querySelectorAll('.lang-en-inline').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
       document.querySelectorAll('.lang-zh-inline').forEach(el => el.style.display = lang === 'zh' ? 'inline' : 'none');
+      document.querySelector('.lang-zh.absolute').style.display = lang === 'zh' ? 'flex' : 'none';
+      document.querySelector('.lang-en.absolute').style.display = lang === 'en' ? 'flex' : 'none';
+      }
       if (lang === 'zh') {
         btnEn.classList.remove('active');
         btnZh.classList.add('active');
@@ -730,7 +739,6 @@
         btnZh.classList.remove('active');
         btnEn.classList.add('active');
       }
-    }
 
     function toggleSheet(id, show) {
       const sheet = document.getElementById(id);
