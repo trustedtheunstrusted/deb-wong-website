@@ -93,76 +93,9 @@
     .lang-zh { display: none; }
     .lang-en-inline { display: inline; }
     .lang-zh-inline { display: none; }
-
-    /* My Soul Link - 隐藏的彩蛋链接 */
-    .soul-link-container {
-      position: relative;
-      width: 100%;
-    }
-
-    .soul-link {
-      position: absolute;
-      bottom: 8%;
-      right: 15%;
-      width: 120px;
-      height: 120px;
-      z-index: 20;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 50%;
-    }
-
-    .soul-link-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      opacity: 0;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .soul-link:hover .soul-link-inner {
-      opacity: 0.15;
-      background: #a855f7;
-    }
-
-    .soul-link-text {
-      font-size: 12px;
-      font-weight: bold;
-      color: #a855f7;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .soul-link:hover .soul-link-text {
-      opacity: 1;
-    }
-
-    /* My Soul 文字提示 - 可点击链接 */
-    .soul-text-label {
-      position: absolute;
-      bottom: 18%;
-      right: 13%;
-      font-size: 12px;
-      font-weight: bold;
-      color: #a855f7;
-      letter-spacing: 1px;
-      text-transform: lowercase;
-      z-index: 21;
-      opacity: 0.6;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    .soul-text-label:hover {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
   </style>
 </head>
+
 
 <body class="selection:bg-green-100">
 
@@ -514,7 +447,7 @@
   <footer class="flex flex-col items-center pt-4 animate-grow" style="animation-delay: 2.3s;">
     <div class="mb-8"><img src="images/contact-title.webp" alt="Contact Me" class="h-8 mix-multiply" /></div>
     <div class="border border-green-200 rounded-lg px-10 py-3 mb-5 hover:bg-green-50 transition-colors cursor-pointer group">
-      <a href="chilldebbie1997@gmail.com" class="text-gray-600 text-lg group-hover:text-green-700 transition-colors"><span class="__cf_email__" data-cfemail="22414a4b4e4e464740404b47131b1b1562454f434b4e0c414d4f">[email&#160;protected]</span></a>
+      <a href="mailto:chilldebbie1997@gmail.com" class="text-gray-600 text-lg group-hover:text-green-700 transition-colors">chilldebbie1997@gmail.com</a>
     </div>
 <!-- Let's grow a new world together. -->
 <p class="text-sm text-gray-400 lang-en" style="font-size: 14px; margin-top: 20px;">
@@ -556,22 +489,24 @@
   </div>
   
 </div>
+</div>
+
+</div>
     <!-- ✨ My Soul Hidden Link ✨ -->
     <div class="soul-link-container animate-grow relative" style="animation-delay: 2.5s;">
-      <a href="my-soul.html" class="soul-link">
+      <a href="my-soul.html" class="soul-link" style="bottom: 18%; right: 13%; font-size: 12px; font-weight: bold; color: #a855f7;">
         <div class="soul-link-inner">
           <span class="soul-link-text">✨</span>
         </div>
       </a>
       <!-- My Soul 文字提示 -->
-      <a href="my-soul.html" class="soul-text-label animate-grow" style="animation-delay: 2.6s; text-decoration: none;">
+      <a href="my-soul.html" class="soul-text-label animate-grow" style="animation-delay: 2.6s; text-decoration: none;bottom: 18%; right: 50%; font-size: 12px; font-weight: bold; color: #a855f7;">
         <span class="lang-en-inline">my soul</span>
         <span class="lang-zh-inline">我的能量</span>
       </a>
       <img class="w-full mix-multiply -mt-45 relative z-0" src="images/bottem-flower.webp" />
     </div>
   </footer>
-
   
   <!-- ══════════════════════════════════
        BOTTOM SHEETS
@@ -854,7 +789,7 @@
   <!-- ══════════════════════════════════
        SCRIPTS
   ══════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function setLang(lang) {
     const btnEn = document.getElementById('btn-en');
     const btnZh = document.getElementById('btn-zh');
@@ -896,4 +831,12 @@
   function closeAllSheets() {
     document.querySelectorAll('[id^="sheet-"]').forEach(s => s.classList.add('translate-y-full'));
     const overlay = document.getElementById('overlay');
-    overlay.classLi
+    overlay.classList.remove('opacity-100');
+    setTimeout(() => { overlay.classList.add('hidden'); }, 500);
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllSheets(); });
+</script>
+</body>
+</html>
