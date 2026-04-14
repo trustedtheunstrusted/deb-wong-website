@@ -93,6 +93,22 @@
     .lang-zh { display: none; }
     .lang-en-inline { display: inline; }
     .lang-zh-inline { display: none; }
+
+    .soul-text-label {
+  position: absolute;
+  bottom: 18%;
+  right: 13%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #a855f7;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  z-index: 21;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
   </style>
 </head>
 
@@ -494,13 +510,13 @@
 </div>
     <!-- ✨ My Soul Hidden Link ✨ -->
     <div class="soul-link-container animate-grow relative" style="animation-delay: 2.5s;">
-      <a href="my-soul.html" class="soul-link" style="bottom: 18%; right: 13%; font-size: 12px; font-weight: bold; color: #a855f7;">
+      <a href="my-soul.html" class="soul-link" style="color: #a855f7;">
         <div class="soul-link-inner">
           <span class="soul-link-text">✨</span>
         </div>
       </a>
       <!-- My Soul 文字提示 -->
-      <a href="my-soul.html" class="soul-text-label animate-grow" style="animation-delay: 2.6s; text-decoration: none;bottom: 18%; right: 18%; font-size: 12px; font-weight: bold; color: #a855f7;">
+      <a href="my-soul.html" class="soul-text-label animate-grow" style="color: #a855f7;">
         <span class="lang-en-inline">my soul</span>
         <span class="lang-zh-inline">我的灵魂</span>
       </a>

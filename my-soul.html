@@ -196,8 +196,17 @@
     }
 
     /* 摄影保持原尺寸 */
+    .modal-content.photo-modal {
+      width: auto;
+      height: auto;
+      max-width: 80%;
+      max-height: 80%;
+    }
+
     .modal-content.photo-modal img {
-      object-fit: cover;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
     }
 
     .modal-close {
@@ -364,27 +373,27 @@
 
       <!-- Photography 2 -->
       <div class="pattern-item photo-item animate-grow" style="animation-delay: 1.5s; background: linear-gradient(135deg, #f7fdf4 0%, #f0f8ed 100%); border: 2px dashed #8bd580; display: flex; align-items: center; justify-content: center;" onclick="openModal('photo-2')">
-       <img src="images/photo-2.png" alt="Photography 1" />
+       <img src="images/photo-2.png" alt="Photography 2" />
       </div>
 
       <!-- Photography 3 -->
       <div class="pattern-item photo-item animate-grow" style="animation-delay: 1.55s; background: linear-gradient(135deg, #f7fdf4 0%, #f0f8ed 100%); border: 2px dashed #8bd580; display: flex; align-items: center; justify-content: center;" onclick="openModal('photo-3')">
-       <img src="images/photo-3.png" alt="Photography 1" />
+       <img src="images/photo-3.png" alt="Photography 3" />
       </div>
 
       <!-- Photography 4 - 空位 -->
       <div class="pattern-item photo-item animate-grow" style="animation-delay: 1.6s; background: linear-gradient(135deg, #f7fdf4 0%, #f0f8ed 100%); border: 2px dashed #8bd580; display: flex; align-items: center; justify-content: center;" onclick="openModal('photo-4')">
-     <img src="images/photo-4.png" alt="Photography 1" />
+     <img src="images/photo-4.png" alt="Photography 4" />
       </div>
 
       <!-- Photography 5 - 空位 -->
       <div class="pattern-item photo-item animate-grow" style="animation-delay: 1.65s; background: linear-gradient(135deg, #f7fdf4 0%, #f0f8ed 100%); border: 2px dashed #8bd580; display: flex; align-items: center; justify-content: center;" onclick="openModal('photo-5')">
-     <img src="images/photo-4.png" alt="Photography 1" />
+     <img src="images/photo-5.png" alt="Photography 5" />
       </div>
 
       <!-- Photography 6 - 空位 -->
       <div class="pattern-item photo-item animate-grow" style="animation-delay: 1.7s; background: linear-gradient(135deg, #f7fdf4 0%, #f0f8ed 100%); border: 2px dashed #8bd580; display: flex; align-items: center; justify-content: center;" onclick="openModal('photo-6')">
-     <img src="images/photo-5.png" alt="Photography 1" />
+     <img src="images/photo-6.png" alt="Photography 6" />
       </div>
     </div>
   </section>
