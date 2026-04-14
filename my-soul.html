@@ -195,19 +195,26 @@
       object-fit: contain;
     }
 
-    /* 摄影保持原尺寸 */
-    .modal-content.photo-modal {
-      width: auto;
-      height: auto;
-      max-width: 80%;
-      max-height: 80%;
-    }
+/* 摄影保持原尺寸 */
+.modal-content.photo-modal {
+  width: 500px;
+  height: 500px;
+  max-width: 90%;
+  aspect-ratio: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;  ← 改成透明背景
+  border-radius: 0;         ← 去掉圆角
+  box-shadow: none;         ← 去掉阴影
+}
 
-    .modal-content.photo-modal img {
-      object-fit: contain;
-      max-width: 100%;
-      max-height: 100%;
-    }
+.modal-content.photo-modal img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
 
     .modal-close {
       position: absolute;
